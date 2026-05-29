@@ -1,0 +1,28 @@
+1. Express Basics
+routes
+middleware
+req/res
+JSON APIS
+
+2. Mongo + Mongoos
+schema
+crud
+querying
+validation
+
+3.react-integration
+fetch-axios
+calling apis
+state update
+
+4. Artitechture
+services
+controllers
+middleware
+error-hanle
+
+Basic Flow to achive first
+create info-unit
+save into DB
+fetch info-unit
+show in frontend
