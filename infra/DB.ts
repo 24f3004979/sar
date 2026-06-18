@@ -4,7 +4,7 @@ import mongoose from  'mongoose';
 
 export const connectDB = async (): Promise<void> => {
   try {
-    const connStr = 'mongodb://localhost:27017/mern_quiz_db';
+    const connStr = 'mongodb://127.0.0.1:27017/sar';
     
     const connection = await mongoose.connect(connStr);
   } catch (error){
