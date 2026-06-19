@@ -3,19 +3,21 @@ import { InfoUnit } from '../models/Info'
 import { Answer } from '../models/Answer'
 import { connectDB } from '../DB';
 
+
 interface IInitInput {
   question_text : string;
   answer_text: string;
 }
 
-// Simple DB scan for redundent Data Unit
 const scan = async (model: Model<any>, Feild:string, value:string)=>{
   return await model.findOne({
     [Feild]: value.trim()
   });
 };
 
+
 export const initInfoUnit = async (input: IInitInput) => {
+  // INFO: Adding Scan at Question and Answer Initialization unit no need for refrences
   console.log("Running DB unit")
   await connectDB();
 
@@ -50,12 +52,3 @@ export const initInfoUnit = async (input: IInitInput) => {
   console.log('Stiching questions and answers into DB')
   return saved;
 }
-
-// Simple Testing the InfoUnit part
-var payload:IInitInput = {
-  question_text :'What is capital of India'
-}
-
-console.log(`Testing Creation sequence : ${await initInfoUnit(payload)}`);
-console.log('Tesing completed :)')
-
