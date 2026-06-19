@@ -58,5 +58,5 @@ var payload:IInitInput = {
 }
 
 console.log(`Testing Creation sequence : ${await initInfoUnit(payload)}`);
-
+console.log('Tesing completed :)')
 

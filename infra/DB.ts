@@ -2,19 +2,13 @@
 
 import mongoose from  'mongoose';
 
-/*
-DB connection with mongodb is not working
-  Failing with unexpected crash without any traces
-
-Needs diagnosis for the given crash and get to know why even the containers are not working
-
-*/
 
 export const connectDB = async (): Promise<void> => {
   try {
-    const connStr = 'mongodb://127.0.0.1:27017/sar';
-    
-    const connection = await mongoose.connect(connStr);
+    const dbName = "sar_db"; 
+    const uri = `mongodb://admin:your_secure_password@127.0.0.1:27017/${dbName}?authSource=admin`;
+
+    const connection = await mongoose.connect(uri);
   } catch (error){
     console.error(`Data Base Initiation Error : ${error as Error}`)
     process.exit(1);

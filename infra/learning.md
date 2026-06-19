@@ -8,4 +8,12 @@ ts node compilation tools for running application
 
 Using tsx in place of ts-node why ?
 What is the new import schema and whats wrong with the imports error ?
-```
+
+Making mongod running its depended into avx based cpu for its process what it really means ? 
+
+Ubuntu Armours blocking mongod permisions to run into the machine led the mongo to crash after it starts into the free kubuntu environment, 
+Making us to choose containers
+    Q What containers are and how they work ?
+Installed podman container for the mongod to run with now we would connect the application DB unit into the data base part
+
+Kubuntu kernels dont allow mongod to run, their is compatibility issue with the kubuntu kernel and mongodb
