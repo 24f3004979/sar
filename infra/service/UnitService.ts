@@ -53,8 +53,7 @@ export const initInfoUnit = async (input: IInitInput) => {
 
 // Simple Testing the InfoUnit part
 var payload:IInitInput = {
-  question_text :'Testing Question',
-  answer_text :'Testing answers'
+  question_text :'What is capital of India'
 }
 
 console.log(`Testing Creation sequence : ${await initInfoUnit(payload)}`);

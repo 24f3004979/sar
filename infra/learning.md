@@ -17,3 +17,7 @@ Making us to choose containers
 Installed podman container for the mongod to run with now we would connect the application DB unit into the data base part
 
 Kubuntu kernels dont allow mongod to run, their is compatibility issue with the kubuntu kernel and mongodb
+
+FIX : Downgraded mongo version and using lower version of MongoDB along with following credential command for log into the DB shell
+
+podman exec -it my-new-mongodb mongosh -u mongo -p 1234 --authenticationDatabase admin

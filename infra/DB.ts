@@ -6,7 +6,7 @@ import mongoose from  'mongoose';
 export const connectDB = async (): Promise<void> => {
   try {
     const dbName = "sar_db"; 
-    const uri = `mongodb://admin:your_secure_password@127.0.0.1:27017/${dbName}?authSource=admin`;
+    const uri = `mongodb://mongo:1234@127.0.0.1:27017/${dbName}?authSource=admin`;
 
     const connection = await mongoose.connect(uri);
   } catch (error){
