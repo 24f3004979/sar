@@ -52,3 +52,11 @@ export const initInfoUnit = async (input: IInitInput) => {
   console.log('Stiching questions and answers into DB')
   return saved;
 }
+
+// Testing String
+var i:IInitInput = {
+  'question_text' : 'Question is what ?',
+  'answer_text' : 'Answer Text is the answer texting'
+};
+
+initInfoUnit(i);

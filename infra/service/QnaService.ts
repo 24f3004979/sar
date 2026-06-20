@@ -1,6 +1,7 @@
 import { Answer } from '../models/Answer'
 import { Question } from '../models/Question'
 import { scan } from './UtilService';
+import {connectDB} from '../DB';
 
 // QNA Unit
 interface IQna {
@@ -15,18 +16,23 @@ export const initQna = async (input: IQna) => {
     Terminates with Initial conditions
 
   Runs with making the requested input into the db 
-  */
+  */ 
+  await connectDB();
   console.log('Initiating QNA Initiation to DB');
 
   if (input.type === Question){
     // Logic for Initiating questions
-    console.log("Making Question Entry");
-
-    let questionDoc = await scan(Question, 'question_text', input.text);
-    if (!questionDoc){
-      questionDoc = new Question({question_text: input.text.trim()});
-      await questionDoc.save();
-      return questionDoc._id;
+    console.log(`Input text for the entry part : ${input.text}`);
+    let qnaDoc = await scan(Question, 'question_text', input.text);
+    console.log(`Question DOC scan : ${qnaDoc}`)
+    if (!qnaDoc){
+      qnaDoc = new Question({question_text: input.text.trim()});
+      await qnaDoc.save();
+      console.log(`QNA Unit Created with given ID Information : ${qnaDoc._id}`)
+      return qnaDoc._id;
+    }else {
+      console.log(`Existing QNA unit found in DB scan: ${qnaDoc._id}`)
+      return 0;
     }
 
   }else if (input.type === Answer){
@@ -39,7 +45,7 @@ export const initQna = async (input: IQna) => {
 
 var test: IQna = {
   type : Question,
-  input_text : "I am question"
+  text : 'Hello I am New Question which we need to address into the main DB right ? '
 }
 
 console.log('Initiating information unit plugger');
